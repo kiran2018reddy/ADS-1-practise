@@ -1,20 +1,14 @@
 // import java.util.Scanner;
-// import java.util.Arrays;
-
-// class Solution {
-  
+// import java.util.Arrays
+// class Solution { 
 //     private int[] arr;
- 
 //     private int n;
-  
 //     protected Solution() {
 //         arr = new int[n];
 //     }
-  
 //     public int size() {
 //         return n;
 //     }
- 
 //     public int[] array() {
 //         return arr;
 //     }
@@ -32,7 +26,7 @@
 //                     j++;
 //                     r--;
 //                 } else if (sum < 0) {
-//                     j++; 
+//                     j++;
 //                 }else {
 //                     r--;
 //                 }
@@ -57,14 +51,19 @@
     // }
 import java.util.Scanner;
 import java.util.Arrays;
+/**
+ * Class for three sum.
+ */
 class threeSum {
     /**
      * { var_description }
      */
     private int count = 0;
-    // threeSum() {
-    //     count = 0;
-    // }
+    /**
+     * { function_description }.
+     *
+     * @param      arr   The arr.
+     */
     void findTriple(final int[]arr) {
         int len = arr.length;
         Arrays.sort(arr);
@@ -80,8 +79,7 @@ class threeSum {
                     r--;
                 } else if (sum < 0) {
                     j++;
-                }
-                else {
+                }else {
                     r--;
                 }
             }
@@ -92,7 +90,12 @@ class threeSum {
 /**
  * Class for solution.
  */
-class Solution {
+ public class Solution {
+    /**
+     * { function_description }
+     *
+     * @param      args  The arguments
+     */
     public static void main(final String[] args) {
         Scanner s = new Scanner(System.in);
         threeSum t = new threeSum();
