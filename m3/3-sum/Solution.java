@@ -76,7 +76,7 @@ final class ThreeSum {
                 if (sum == 0) {
                     count++;
                     j++;
-                    r--;
+                    r= len - 1;
                 } else if (sum < 0) {
                     j++;
                 } else {
