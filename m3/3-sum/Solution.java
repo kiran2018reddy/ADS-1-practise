@@ -92,6 +92,12 @@ final class ThreeSum {
  */
  class Solution {
     /**
+     * Constructs the object.
+     */
+    Solution() {
+
+    }
+    /**
      * { function_description }.
      *
      * @param      args  The arguments.
