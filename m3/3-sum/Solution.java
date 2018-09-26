@@ -77,15 +77,16 @@ final class ThreeSum {
                     count++;
                     j++;
                     r--;
-                } else if (sum < 0) {
-                    j++;
-                } else {
-                    r--;
-                }
+                // } else if (sum < 0) {
+                //     j++;
+                // } else {
+                //     r--;
+                // }
             }
         }
         System.out.println(count);
     }
+}
 }
 /**
  * Class for solution.
