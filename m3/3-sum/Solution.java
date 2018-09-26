@@ -43,7 +43,7 @@ class Solution {
                 if (array[i] + array[j] + array[k] == 0) {
                     count++;
                 }
-                return count;
+                return;
             }
         }
     }
