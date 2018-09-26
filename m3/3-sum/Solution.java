@@ -47,7 +47,7 @@ class Solution {
             }
         }
     }
-       //System.out.println(count);
+       System.out.println(count);
     }
     /**
      * main function.
