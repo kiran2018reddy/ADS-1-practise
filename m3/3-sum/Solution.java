@@ -1,6 +1,6 @@
 // import java.util.Scanner;
 // import java.util.Arrays
-// class Solution { 
+// class Solution {
 //     private int[] arr;
 //     private int n;
 //     protected Solution() {
@@ -56,7 +56,7 @@ import java.util.Arrays;
  */
 final class ThreeSum {
     /**
-     * { var_description }
+     * { var_description }.
      */
     private int count = 0;
     /**
@@ -79,7 +79,7 @@ final class ThreeSum {
                     r--;
                 } else if (sum < 0) {
                     j++;
-                }else {
+                } else {
                     r--;
                 }
             }
@@ -90,11 +90,11 @@ final class ThreeSum {
 /**
  * Class for solution.
  */
- class Solution {
+ final class Solution {
     /**
      * Constructs the object.
      */
-    Solution() {
+    private Solution() {
 
     }
     /**
