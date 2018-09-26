@@ -1,36 +1,20 @@
 import java.util.Scanner;
 import java.util.Arrays;
-/**
- * Class for solution.
- */
+
 class Solution {
-    /**
-     * { var_description.
-     */
+  
     private int[] arr;
-    /**
-     * { var_description}.
-     */
+ 
     private int n;
-    /**
-     * Constructs the object.
-     */
-    Solution() {
+  
+    protected Solution() {
         arr = new int[n];
     }
-    /**
-     * { function_description.
-     *
-     * @return size { description_of_the_return_value }
-     */
+  
     public int size() {
         return n;
     }
-    /**
-     * { function_description.
-     *
-     * @return  array   { description_of_the_return_value }
-     */
+ 
     public int[] array() {
         return arr;
     }
@@ -39,7 +23,7 @@ class Solution {
         int count = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
-                for (int k = i + 2; k < array.length; k++) {
+                for (int k = array.length-1; k < array.length; k++) {
                 if (array[i] + array[j] + array[k] == 0) {
                     count++;
                 }
@@ -48,12 +32,7 @@ class Solution {
     }
        System.out.println(count);
     }
-    /**
-     * main function.
-     *
-     * @param      args  The arguments
-     */
-    public static void main(final String[] args) {
+     public static void main(final String[] args) {
         Scanner sc = new Scanner(System.in);
         int inp = sc.nextInt();
         int[] arr = new int[inp];
@@ -63,3 +42,51 @@ class Solution {
         trSum(arr);
     }
 }
+
+
+// import java.util.Scanner;
+// import java.util.Arrays;
+// class Solution {
+//     public static void main(String[] args) {
+//         Scanner s = new Scanner(System.in);
+//         threeSum t = new threeSum();
+//         int n = s.nextInt();
+//         int[] arr = new int[n];
+//         for (int i = 0; i < n; i++) {
+//             arr[i] = s.nextInt();
+//         }
+//         t.findTrip(arr);
+//         // System.out.println(t.Binarysearch(arr, 6));
+//         // System.out.println(Arrays.toString(arr));
+//     }
+// }
+// class threeSum {
+//     int count;
+//     threeSum() {
+//         count = 0;
+//     }
+//     void findTrip(int[]arr) {
+//         int len = arr.length;
+//         Arrays.sort(arr);
+//         for (int i = 0; i < len - 1; i++) {
+//             int j = i + 1;
+//             int r = len - 1;
+//             int x = arr[i];
+//             while (j < r) {
+//                 int sum = x + arr[j]+arr[r];
+//                 if (sum == 0) {
+//                     count++;
+//                     j++;
+//                     r--;
+//                 } else if (sum < 0) {
+//                     j++;
+                    
+//                 }else {
+//                     r--;
+//                 }
+//             }
+            
+//         }
+//         System.out.println(count);
+//     }
+// }
