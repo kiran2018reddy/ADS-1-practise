@@ -77,10 +77,10 @@ final class ThreeSum {
                     count++;
                     j++;
                     k = arr.length - 1;
-                } else if (sum < 0) {
-                    j++;
-                } else {
+                } else if (sum > 0) {
                     k--;
+                } else {
+                    j++;
                 }
             }
         }
