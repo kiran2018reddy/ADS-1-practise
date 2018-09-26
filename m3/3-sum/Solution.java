@@ -65,18 +65,18 @@ final class ThreeSum {
      * @param      arr   The arr.
      */
     void findTriple(final int[]arr) {
-        int len = arr.length;
+        //int len = arr.length;
         Arrays.sort(arr);
-        for (int i = 0; i < len - 1; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             int j = i + 1;
-            int k = len - 1;
+            int k = arr.length - 1;
             //int x = arr[i];
             while (j < k) {
                 int sum = arr[i] + arr[j] + arr[k];
                 if (sum == 0) {
                     count++;
                     j++;
-                    k = len - 1;
+                    k = arr.length - 1;
                 } else if (sum < 0) {
                     j++;
                 } else {
