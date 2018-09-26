@@ -54,7 +54,7 @@ import java.util.Arrays;
 /**
  * Class for three sum.
  */
-class threeSum {
+final class ThreeSum {
     /**
      * { var_description }
      */
@@ -98,7 +98,7 @@ class threeSum {
      */
     public static void main(final String[] args) {
         Scanner s = new Scanner(System.in);
-        threeSum t = new threeSum();
+        ThreeSum t = new ThreeSum();
         int n = s.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
