@@ -69,18 +69,18 @@ final class ThreeSum {
         Arrays.sort(arr);
         for (int i = 0; i < len - 1; i++) {
             int j = i + 1;
-            int r = len - 1;
+            int k = len - 1;
             //int x = arr[i];
-            while (j < r) {
-                int sum = arr[i] + arr[j] + arr[r];
+            while (j < k) {
+                int sum = arr[i] + arr[j] + arr[k];
                 if (sum == 0) {
                     count++;
                     j++;
-                    r= len - 1;
+                    k = len - 1;
                 } else if (sum < 0) {
                     j++;
                 } else {
-                    r--;
+                    k--;
                 }
             }
         }
