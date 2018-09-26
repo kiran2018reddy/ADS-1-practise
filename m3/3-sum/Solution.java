@@ -26,6 +26,7 @@ class Solution {
                 for (int k = array.length-1; k > j; k--) {
                 if (array[i] + array[j] + array[k] == 0) {
                     count++;
+                    break;
                 }
             }
         }
