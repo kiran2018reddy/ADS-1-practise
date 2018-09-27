@@ -76,7 +76,7 @@ final class ThreeSum {
                 if (sum == 0) {
                     count++;
                     j++;
-                    k = arr.length - 1;
+                    k--; //incresing j i.e k should be less than prious k or  k = arr.length - 1;
                 } else if (sum > 0) {
                     k--;
                 } else {
