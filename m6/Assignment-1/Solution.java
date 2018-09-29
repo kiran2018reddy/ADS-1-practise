@@ -1,54 +1,54 @@
 import java.util.Scanner;
 import java.util.Arrays;
-class LinkedList {
-    Node f = null;
-    Node l = null;
-    int s = 0;
-    class Node {
-        String data;
-        Node next;
-        Node(String data) {
-            this.data = data; 
-        }
-    }
-    public boolean isEmpty() {
-        return s == 0;
-    }
-    public void push(String element){
-        Node newnode = new Node(element);
-        if(isEmpty()) {
-            f = newnode;
-            l = f;
-            l.next = null;
-            s = s + 1;
-            return;
-        }
-        Node oldlast = l;
-        l = newnode;
-        oldlast.next = l;
-        l.next = null;
-        s = s + 1;
+// class LinkedList {
+//     Node f = null;
+//     Node l = null;
+//     int s = 0;
+//     class Node {
+//         String data;
+//         Node next;
+//         Node(String data) {
+//             this.data = data; 
+//         }
+//     }
+//     public boolean isEmpty() {
+//         return s == 0;
+//     }
+//     public void push(String element){
+//         Node newnode = new Node(element);
+//         if(isEmpty()) {
+//             f = newnode;
+//             l = f;
+//             l.next = null;
+//             s = s + 1;
+//             return;
+//         }
+//         Node oldlast = l;
+//         l = newnode;
+//         oldlast.next = l;
+//         l.next = null;
+//         s = s + 1;
 
-    }
-    public String pop(){
-        if(isEmpty()){
-            return null;
-        }
-        String item = f.data;
-        f = f.next;
-        s = s - 1;
-        return item;
+//     }
+//     public String pop(){
+//         if(isEmpty()){
+//             return null;
+//         }
+//         String item = f.data;
+//         f = f.next;
+//         s = s - 1;
+//         return item;
 
-    }
-    public void printList() {
-        Node pnode = f;       
-        while (pnode != null) {
-            System.out.print(pnode.data + " ");
-            pnode = pnode.next;
-        }
+//     }
+//     public void printList() {
+//         Node pnode = f;       
+//         while (pnode != null) {
+//             System.out.print(pnode.data + " ");
+//             pnode = pnode.next;
+//         }
         
-    }
-}
+//     }
+// }
 class AddLargeNumbers {
 //     private Node firstelement = null;
 //     private class Node {
@@ -136,4 +136,53 @@ public class Solution {
         }
     }
     
+}
+class LinkedList {
+    Node f = null;
+    Node l = null;
+    int s = 0;
+    class Node {
+        String data;
+        Node next;
+        Node(String data) {
+            this.data = data; 
+        }
+    }
+    public boolean isEmpty() {
+        return s == 0;
+    }
+    public void push(String element){
+        Node newnode = new Node(element);
+        if(isEmpty()) {
+            f = newnode;
+            l = f;
+            l.next = null;
+            s = s + 1;
+            return;
+        }
+        Node oldlast = l;
+        l = newnode;
+        oldlast.next = l;
+        l.next = null;
+        s = s + 1;
+
+    }
+    public String pop(){
+        if(isEmpty()){
+            return null;
+        }
+        String item = f.data;
+        f = f.next;
+        s = s - 1;
+        return item;
+
+    }
+    public void printList() {
+        Node pnode = f;       
+        while (pnode != null) {
+            System.out.print(pnode.data + " ");
+            pnode = pnode.next;
+        }
+        
+    }
 }
