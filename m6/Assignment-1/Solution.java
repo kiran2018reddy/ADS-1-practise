@@ -1,12 +1,9 @@
 import java.util.Scanner;
 import java.util.Arrays;
-/**
- * List of linkeds.
- */
 class LinkedList {
     Node f = null;
     Node l = null;
-    int size = 0;
+    int s = 0;
     class Node {
         String data;
         Node next;
@@ -14,18 +11,36 @@ class LinkedList {
             this.data = data; 
         }
     }
-    /**
-     * Determines if empty.
-     *
-     * @return     True if empty, False otherwise.
-     */
     public boolean isEmpty() {
-        return size == 0;
+        return s == 0;
     }
-    /**
-     * { function_description }.
-     */
-  public void printList() {
+    public void push(String element){
+        Node newnode = new Node(element);
+        if(isEmpty()) {
+            f = newnode;
+            l = f;
+            l.next = null;
+            s = s + 1;
+            return;
+        }
+        Node oldlast = l;
+        l = newnode;
+        oldlast.next = l;
+        l.next = null;
+        s = s + 1;
+
+    }
+    public String pop(){
+        if(isEmpty()){
+            return null;
+        }
+        String item = f.data;
+        f = f.next;
+        s = s - 1;
+        return item;
+
+    }
+    public void printList() {
         Node pnode = f;       
         while (pnode != null) {
             System.out.print(pnode.data + " ");
@@ -33,44 +48,7 @@ class LinkedList {
         }
         
     }
-    /**
-     * { function_description }.
-     *
-     * @param      element  The element.
-     */
-    public void push(String element){
-        Node newnode = new Node(element);
-        if(isEmpty()) {
-            f = newnode;
-            l = f;
-            l.next = null;
-            size = size + 1;
-            return;
-        }
-        Node oldl = l;
-        l = newnode;
-        oldl.next = l;
-        l.next = null;
-        size++;
-    }
-    /**
-     * { function_description }.
-     *
-     * @return     { description_of_the_return_value }.
-     */
-    public String pop(){
-        if(isEmpty()){
-            return null;
-        }
-        String item = f.data;
-        f = f.next;
-        size = size - 1;
-        return item;
-    }
 }
-/**
- * Class for add large numbers.
- */
 class AddLargeNumbers {
 //     private Node firstelement = null;
 //     private class Node {
@@ -90,17 +68,17 @@ list. Return the linked list object.*/
          LinkedList le = new LinkedList();
         String[] numbers = number.split("");
         for(int i = 0; i < numbers.length; i = i + 1) {
-             le.push(numbers[i]);
+            le.push(numbers[i]);
         }
-        return le;//le.push(number[i]);
-    }
+    return le;
+}
    /*2. String digitsToNumber(LinkedList number) [1.5 marks]
 You were given a linked list object. Iterate over that linked list and append the values of
 each node in that linked list to a string.
 Return the String containing values of linked list*/ 
 /**
  * { function_description }.
- *s
+ *
  * @param      list  The list.
  *
  * @return     { description_of_the_return_value }.
@@ -124,7 +102,7 @@ two linked list digits by using a Stacks.*/
  * @return     { description_of_the_return_value }.
  */
     public static LinkedList addLargeNumbers(LinkedList list1, LinkedList list2) {
-        return new LinkedList();
+        return new  LinkedList();
 }
 }
 /**
@@ -157,4 +135,5 @@ public class Solution {
                 break;
         }
     }
+    
 }
