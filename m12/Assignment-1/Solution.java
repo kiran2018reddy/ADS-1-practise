@@ -107,7 +107,6 @@ class Solution {
 		}
 	}
 	public static void meritofstudents(studentdata[] array, int vacancys, int open, int bc, int sc, int st) {
-		countcart(array);
 		for (int i = 0; i < array.length; i++) {
 			if (vacancys == 0) {
 				return;
