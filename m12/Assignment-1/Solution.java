@@ -9,8 +9,8 @@ class Insertionsort {
 		return b1.compareTo(b2) == -1;
 	}
 	void sort(studentdata[] students) {
-		for (int i = 1; i < students.length; i = i - 1) {
-			for (int j = i; j > 0; j = j - 1) {
+		for (int i = 1; i < students.length; i++) {
+			for (int j = i; j > 0; j--) {
 				if (less(students[j - 1], students[j])) {
 					ex(students, j - 1, j);
 				} else {
@@ -23,17 +23,17 @@ class Insertionsort {
 class studentdata implements Comparable<studentdata> {
 	String studentname;
 	String birthdate;
-	int s1;
-	int s2;
-	int s3;
+	int s1marks;
+	int s2marks;
+	int s3marks;
 	int tmarks;
 	String rescategory;
 	studentdata(String name, String dob, int s1, int s2, int s3, int total, String category) {
 		this.studentname = name;
 		this.birthdate = dob;
-		this.s1 = s1;
-		this.s2 = s2;
-		this.s3 = s3;
+		this.s1marks = s1;
+		this.s2marks = s2;
+		this.s3marks = s3;
 		this.tmarks = total;
 		this.rescategory = category;
 	}
@@ -48,16 +48,16 @@ class studentdata implements Comparable<studentdata> {
 		if (this.tmarks < other.tmarks) {
 			return -1;
 		}
-		if (this.s3 > other.s3) {
+		if (this.s3marks > other.s3marks) {
 			return 1;
 		}
-		if (this.s3 < other.s3) {
+		if (this.s3marks < other.s3marks) {
 			return -1;
 		}
-		if (this.s2 > other.s2) {
+		if (this.s2marks > other.s2marks) {
 			return 1;
 		}
-		if (this.s2 < other.s2) {
+		if (this.s2marks < other.s2marks) {
 			return -1;
 		}
 		if (Integer.parseInt(this.datesplit()[2]) > Integer.parseInt(other.datesplit()[2])) {
@@ -106,9 +106,10 @@ class Solution {
 			}
 		}
 	}
-	public static void meritofstudents(studentdata[] array, int vacancys, int open, int bc, int sc, int st) {
+	public static void meritofstd(studentdata[] array, int vacancy, int open, int bc, int sc, int st) {
+		countcat(array);
 		for (int i = 0; i < array.length; i++) {
-			if (vacancys == 0) {
+			if (vacancy == 0) {
 				return;
 			}
 			if (open > 0) {
@@ -116,7 +117,7 @@ class Solution {
 				                   array[i].tmarks + "," +
 				                   array[i].rescategory);
 			open--;
-				vacancys--;
+				vacancy--;
 
 			} else {
 				if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC") || array[i].rescategory.equals("ST")) {
@@ -125,26 +126,27 @@ class Solution {
 						                   array[i].tmarks + "," +
 						                   array[i].rescategory);
 						bc--;
-						vacancys--;
+						vacancy--;
 					} else if (array[i].rescategory.equals("SC") && sc > 0) {
 						System.out.println(array[i].studentname + "," +
 						                   array[i].tmarks + "," +
 						                   array[i].rescategory);
 						sc--;
-						vacancys--;
+						vacancy--;
 					} else if (array[i].rescategory.equals("ST") && st > 0) {
 						System.out.println(array[i].studentname + "," +
 						                   array[i].tmarks + "," +
 						                   array[i].rescategory);
 						st--;
-						vacancys--;
-					} else if (vacancys > 0 && bccount == 0 && sccount == 0 && stcount == 0) {
-						System.out.println(array[i].studentname + "," +
-						                   array[i].tmarks + "," +
-						                   array[i].rescategory);
-						vacancys--;
+						vacancy--;
 					}
+				} else if (vacancy > 0 && bccount == 0 && sccount == 0 && stcount == 0) {
+					System.out.println(array[i].studentname + "," +
+					                   array[i].tmarks + "," +
+					                   array[i].rescategory);
+					vacancy--;
 				}
+
 			}
 		}
 	}
@@ -177,7 +179,7 @@ class Solution {
 		insertion.sort(students);
 		print(students);
 		System.out.println();
-		meritofstudents(students, vacancynum, openvacancy, bcvacancy, scvacancy, stvacancy);
+		meritofstd(students, vacancynum, openvacancy, bcvacancy, scvacancy, stvacancy);
 	}
 
 }
