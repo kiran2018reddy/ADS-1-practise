@@ -90,7 +90,7 @@ class Solution {
 	static int bccount = 0;
 	static int sccount = 0;
 	static int stcount = 0;
-	public static void count(studentdata[] array) {
+	public static void countcart(studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
 			if (array[i].rescategory.equals("Open")) {
 				opencount++;
@@ -107,7 +107,7 @@ class Solution {
 		}
 	}
 	public static void meritofstudents(studentdata[] array, int vacancys, int open, int bc, int sc, int st) {
-		count(array);
+		countcart(array);
 		for (int i = 0; i < array.length; i++) {
 			if (vacancys == 0) {
 				return;
