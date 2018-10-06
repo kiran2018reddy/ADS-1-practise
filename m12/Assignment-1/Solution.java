@@ -1,13 +1,29 @@
 import java.util.Scanner;
+/**
+ * Class for insertionsort.
+ */
 class Insertionsort {
 	void ex(studentdata[] array, int sindex, int bindex) {
 		studentdata tmp = array[sindex];
 		array[sindex] = array[bindex];
 		array[bindex] = tmp;
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @param      b1    The b 1.
+	 * @param      b2    The b 2.
+	 *
+	 * @return     { description_of_the_return_value }.
+	 */
 	boolean less(studentdata b1, studentdata b2) {
 		return b1.compareTo(b2) == -1;
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @param      students  The students.
+	 */
 	void sort(studentdata[] students) {
 		for (int i = 1; i < students.length; i++) {
 			for (int j = i; j > 0; j--) {
@@ -20,6 +36,9 @@ class Insertionsort {
 		}
 	}
 }
+/**
+ * Class for studentdata.
+ */
 class studentdata implements Comparable<studentdata> {
 	String studentname;
 	String birthdate;
@@ -28,6 +47,17 @@ class studentdata implements Comparable<studentdata> {
 	int s3marks;
 	int tmarks;
 	String rescategory;
+	/**
+	 * Constructs the object.
+	 *
+	 * @param      name      The name.
+	 * @param      dob       The dob.
+	 * @param      s1        The s 1.
+	 * @param      s2        The s 2.
+	 * @param      s3        The s 3.
+	 * @param      total     The total.
+	 * @param      category  The category.
+	 */
 	studentdata(String name, String dob, int s1, int s2, int s3, int total, String category) {
 		this.studentname = name;
 		this.birthdate = dob;
@@ -37,10 +67,22 @@ class studentdata implements Comparable<studentdata> {
 		this.tmarks = total;
 		this.rescategory = category;
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @return     { description_of_the_return_value }.
+	 */
 	String[] datesplit() {
 		String[] splitdate = birthdate.split("-");
 		return splitdate;
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @param      other  The other.
+	 *
+	 * @return     { description_of_the_return_value }.
+	 */
 	public int compareTo(studentdata other) {
 		if (this.tmarks > other.tmarks) {
 			return 1;
@@ -82,17 +124,27 @@ class studentdata implements Comparable<studentdata> {
 	}
 
 }
+/**
+ * Class for solution.
+ */
 class Solution {
+	/**
+	 * Constructs the object.
+	 */
 	Solution() {
-		//unused
 	}
 	static int opencount = 0;
 	static int bccount = 0;
 	static int sccount = 0;
 	static int stcount = 0;
+	/**
+	 * { function_description }.
+	 *
+	 * @param      array  The array.
+	 */
 	public static void countcat(studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
-			if (array[i].rescategory.equals("Open")) {
+if (array[i].rescategory.equals("Open")) {
 				opencount++;
 			}
 			if (array[i].rescategory.equals("BC")) {
@@ -106,6 +158,16 @@ class Solution {
 			}
 		}
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @param      array    The array.
+	 * @param      vacancy  The vacancy.
+	 * @param      open     The open.
+	 * @param      bc       { parameter_description }.
+	 * @param      sc       The screen.
+	 * @param      st       { parameter_description }.
+	 */
 	public static void meritofstd(studentdata[] array, int vacancy, int open, int bc, int sc, int st) {
 		countcat(array);
 		for (int i = 0; i < array.length; i++) {
@@ -150,7 +212,11 @@ class Solution {
 			}
 		}
 	}
-
+	/**
+	 * { function_description }.
+	 *
+	 * @param      array  The array.
+	 */
 	public static void print(studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
 			System.out.println(array[i].studentname + "," +
@@ -158,6 +224,11 @@ class Solution {
 			                   array[i].rescategory);
 		}
 	}
+	/**
+	 * { function_description }.
+	 *
+	 * @param      args  The arguments.
+	 */
 	public static void main(String[] args) {
 		Scanner scan =  new Scanner(System.in);
 		int num = Integer.parseInt(scan.nextLine());
