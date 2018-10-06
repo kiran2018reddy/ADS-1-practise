@@ -142,7 +142,7 @@ class Solution {
 	 *
 	 * @param      array  The array.
 	 */
-	public static void countcat(studentdata[] array) {
+	public static void countcat(final studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
 if (array[i].rescategory.equals("Open")) {
 				opencount++;
@@ -168,44 +168,46 @@ if (array[i].rescategory.equals("Open")) {
 	 * @param      sc       The screen.
 	 * @param      st       { parameter_description }.
 	 */
-	public static void meritofstd(studentdata[] array, int vacancy, int open, int bc, int sc, int st) {
+	public static void meritofstd(final studentdata[] array, int vacancy, int open,
+ int bc,  int sc,int st) {
 		countcat(array);
 		for (int i = 0; i < array.length; i++) {
 			if (vacancy == 0) {
 				return;
 			}
 			if (open > 0) {
-				System.out.println(array[i].studentname + "," +
-				                   array[i].tmarks + "," +
-				                   array[i].rescategory);
+				System.out.println(array[i].studentname + "," 
+	+ array[i].tmarks + "," 
+	+ array[i].rescategory);
 			open--;
 				vacancy--;
 
 			} else {
-				if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC") || array[i].rescategory.equals("ST")) {
-					if (array[i].rescategory.equals("BC") && bc > 0) {
-						System.out.println(array[i].studentname + "," +
-						                   array[i].tmarks + "," +
-						                   array[i].rescategory);
+if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC") 
+	|| array[i].rescategory.equals("ST")) {
+		if (array[i].rescategory.equals("BC") && bc > 0) {
+		System.out.println(array[i].studentname + "," +
+			array[i].tmarks + "," 
+				+ array[i].rescategory);
 						bc--;
 						vacancy--;
-					} else if (array[i].rescategory.equals("SC") && sc > 0) {
-						System.out.println(array[i].studentname + "," +
-						                   array[i].tmarks + "," +
-						                   array[i].rescategory);
+	} else if (array[i].rescategory.equals("SC") && sc > 0) {
+	System.out.println(array[i].studentname + "," 
+						 + array[i].tmarks + "," 
+                + array[i].rescategory);
 						sc--;
 						vacancy--;
 					} else if (array[i].rescategory.equals("ST") && st > 0) {
-						System.out.println(array[i].studentname + "," +
-						                   array[i].tmarks + "," +
-						                   array[i].rescategory);
+						System.out.println(array[i].studentname + "," 
+				+ array[i].tmarks + "," 
+				+ array[i].rescategory);
 						st--;
 						vacancy--;
 					}
-				} else if (vacancy > 0 && bccount == 0 && sccount == 0 && stcount == 0) {
-					System.out.println(array[i].studentname + "," +
-					                   array[i].tmarks + "," +
-					                   array[i].rescategory);
+} else if (vacancy > 0 && bccount == 0 && sccount == 0 && stcount == 0) {
+					System.out.println(array[i].studentname + "," 
+					          + array[i].tmarks + "," 
+					       + array[i].rescategory);
 					vacancy--;
 				}
 
@@ -219,9 +221,9 @@ if (array[i].rescategory.equals("Open")) {
 	 */
 	public static void print(studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i].studentname + "," +
-			                   array[i].tmarks + "," +
-			                   array[i].rescategory);
+			System.out.println(array[i].studentname + "," 
+			                   + array[i].tmarks + "," 
+			                   + array[i].rescategory);
 		}
 	}
 	/**
@@ -229,7 +231,7 @@ if (array[i].rescategory.equals("Open")) {
 	 *
 	 * @param      args  The arguments.
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		Scanner scan =  new Scanner(System.in);
 		int num = Integer.parseInt(scan.nextLine());
 		studentdata[] students = new studentdata[num];
@@ -242,15 +244,16 @@ if (array[i].rescategory.equals("Open")) {
 			String line = scan.nextLine();
 			String[] tokens = line.split(",");
 			studentdata eachstudentdata = new studentdata(tokens[0], tokens[1],
-			        Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]),
-			        Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5]), tokens[6]);
+				Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]),
+Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5]), tokens[6]);
 			students[i] = eachstudentdata;
 		}
 		Insertionsort insertion = new Insertionsort();
 		insertion.sort(students);
 		print(students);
 		System.out.println();
-		meritofstd(students, vacancynum, openvacancy, bcvacancy, scvacancy, stvacancy);
+		meritofstd(students, vacancynum, openvacancy,
+		 bcvacancy, scvacancy, stvacancy);
 	}
 
 }
