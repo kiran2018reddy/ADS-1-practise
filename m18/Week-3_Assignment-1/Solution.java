@@ -72,6 +72,9 @@ stMaxPQ.insert(new Stockexc(tokens[0], Float.parseFloat(tokens[1])));
                 if (tokens[1].equals("minST")) {
                     System.out.println(symbolMin.get(tokens[2]));
                 }
+            break;
+      case "intersection":
+        break;
             }
         }
     }
