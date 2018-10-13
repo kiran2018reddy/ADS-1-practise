@@ -96,6 +96,7 @@ stMaxPQ.insert(new Stockexc(tokens[0], Float.parseFloat(tokens[1])));
                 }
             default:break;
       case "intersection":
+      System.out.println(symbolMax.get(tokens[2]));
         break;
             }
         }
@@ -213,8 +214,7 @@ class STable<Key extends Comparable<Key>, Value> {
     	for (int i = 0; i < keys.length; i++) {
             if (keys[i] != null) {
             System.out.println(keys[i] + " " + values[i]);
-
-            }
+        }
         }
     }
 }
