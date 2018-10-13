@@ -1,159 +1,116 @@
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Comparator;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+class Stockexc implements Comparable<Stockexc>{
+	String name;
+	float data;
 
-
-
-class MaxPQ<Key> implements Iterable<Key> {
-	private Key[] pq;                    
-	private int n;                       
-	private Comparator<Key> comparator;  
-
-	public MaxPQ(int initCapacity) {
-		pq = (Key[]) new Object[initCapacity + 1];
-		n = 0;
+	Stockexc(String p, float q) {
+		this.name = p;
+		this.data = q;
 	}
 
-	public MaxPQ() {
-		this(1);
+	public String toString() {
+		return this.name+" "+this.data;
 	}
 
-	public MaxPQ(int initCapacity, Comparator<Key> comparator) {
-		this.comparator = comparator;
-		pq = (Key[]) new Object[initCapacity + 1];
-		n = 0;
-	}
+	public int compareTo(Stockexc that) {
+		if (this.data > that.data) {
+            return +1;
+        }
+        if (this.data < that.data) {
+            return -1;
+        }
+        return this.name.compareTo(that.name);
+    }
+}
 
-	public MaxPQ(Comparator<Key> comparator) {
-		this(1, comparator);
-	}
+class Solution {
+}
+class STable<Key extends Comparable<Key>, Value> {
+    /**
+     * key array of type key.
+     */
+    private Key[] keys;
+    /**
+     * value array of value Type.
+     */
+    private int[] values;
+    /**
+     * size of the table.
+     */
+    private int n = 0;
+    /**
+     * Constructs the object.
+     * The keys array of type Key.
+     * The values array of type value.
+     *
+     * @param      size  The size of int type.
+     */
 
-	public MaxPQ(Key[] keys) {
-		n = keys.length;
-		pq = (Key[]) new Object[keys.length + 1];
-		for (int i = 0; i < n; i++)
-			pq[i + 1] = keys[i];
-		for (int k = n / 2; k >= 1; k--)
-			sink(k);
-		assert isMaxHeap();
-	}
+    STable(final int size) {
+        keys = (Key[]) new Comparable[size];
+        values =  new int[size];
+      }
 
+    public void put(final Key key, final int value) {
+        int i = rank(key);
+        if (i < n && keys[i].compareTo(key) == 0) {
+            values[i]++;
+            return;
+        }
+        for (int j = n; j > i; j--)  {
+            keys[j] = keys[j - 1];
+            values[j] = values[j - 1];
+        }
+        keys[i] = key;
+        values[i] = value;
+        n++;
+    }
 
+    public int rank(final Key key) {
+        int low = 0, high = n - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int cmp = key.compareTo(keys[mid]);
+            if     (cmp < 0) {
+                high = mid - 1;
+            } else if (cmp > 0) {
+                low = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return low;
+    }
 
-public boolean isEmpty() {
-		return n == 0;
-	}
+    public int get(final Key key) {
+        if (key == null) {
+            System.out.println("No key");
+            return 0;
+        }
+        if (isEmpty()) {
+            return 0;
+        }
+        int i = rank(key);
+        if (i < n && keys[i].compareTo(key) == 0) {
+            return values[i];
+        }
+        return 0;
+    }
 
-	public int size() {
-		return n;
-	}
+    public boolean isEmpty() {
+        if (n != 0) {
+            return false;
+        }
+        return true;
+    }
 
-	public Key max() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
-		return pq[1];
-	}
+    public void print() {
+    	for (int i = 0; i < keys.length; i++) {
+            if (keys[i] != null) {
+            System.out.println(keys[i] + " " + values[i]);
 
-	private void resize(int capacity) {
-		assert capacity > n;
-		Key[] temp = (Key[]) new Object[capacity];
-		for (int i = 1; i <= n; i++) {
-			temp[i] = pq[i];
-		}
-		pq = temp;
-	}
-
-
-	public void insert(Key x) {
-
-		if (n == pq.length - 1) resize(2 * pq.length);
-
-		pq[++n] = x;
-		swim(n);
-		assert isMaxHeap();
-	}
-
-	public Key delMax() {
-		if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
-		Key max = pq[1];
-		exch(1, n--);
-		sink(1);
-		pq[n + 1] = null;   // to avoid loiterig and help with garbage collection
-		if ((n > 0) && (n == (pq.length - 1) / 4)) resize(pq.length / 2);
-		assert isMaxHeap();
-		return max;
-	}
-
-private void swim(int k) {
-		while (k > 1 && less(k / 2, k)) {
-			exch(k, k / 2);
-			k = k / 2;
-		}
-	}
-
-	private void sink(int k) {
-		while (2 * k <= n) {
-			int j = 2 * k;
-			if (j < n && less(j, j + 1)) j++;
-			if (!less(k, j)) break;
-			exch(k, j);
-			k = j;
-		}
-	}
-
-	private boolean less(int i, int j) {
-		if (comparator == null) {
-			return ((Comparable<Key>) pq[i]).compareTo(pq[j]) < 0;
-		} else {
-			return comparator.compare(pq[i], pq[j]) < 0;
-		}
-	}
-
-	private void exch(int i, int j) {
-		Key swap = pq[i];
-		pq[i] = pq[j];
-		pq[j] = swap;
-	}
-
-	
-	private boolean isMaxHeap() {
-		return isMaxHeap(1);
-	}
-
-	
-	private boolean isMaxHeap(int k) {
-		if (k > n) return true;
-		int left = 2 * k;
-		int right = 2 * k + 1;
-		if (left  <= n && less(k, left))  return false;
-		if (right <= n && less(k, right)) return false;
-		return isMaxHeap(left) && isMaxHeap(right);
-	}
-
-
-
-	public Iterator<Key> iterator() {
-		return new HeapIterator();
-	}
-
-	private class HeapIterator implements Iterator<Key> {
-
-		private MaxPQ<Key> copy;
-
-		public HeapIterator() {
-			if (comparator == null) copy = new MaxPQ<Key>(size());
-			else                    copy = new MaxPQ<Key>(size(), comparator);
-			for (int i = 1; i <= n; i++)
-				copy.insert(pq[i]);
-		}
-
-		public boolean hasNext()  { return !copy.isEmpty();                     }
-		public void remove()      { throw new UnsupportedOperationException();  }
-
-		public Key next() {
-			if (!hasNext()) throw new NoSuchElementException();
-			return copy.delMax();
-		}
-	}
+            }
+        }
+    }
 }
