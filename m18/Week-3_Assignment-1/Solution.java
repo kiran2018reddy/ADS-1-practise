@@ -20,7 +20,7 @@ class Stockexc implements Comparable <Stockexc>{
     Stockexc(final String p, final float q) {
     this.name = p;
     this.data = q;
-	}
+}
 /**
  * Returns a string representation of the object.
  *
