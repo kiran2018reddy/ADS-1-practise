@@ -2,8 +2,14 @@ import java.util.Scanner;
 /**
  * Class for stockexc.
  */
-class Stockexc implements Comparable <Stockexc> {
+class Stockexc implements Comparable <Stockexc>{
+    /**
+     * { var_description }.
+     */
     public String name;
+    /**
+     * { var_description }.
+     */
     public float data;
 /**
  * Constructs the object.
@@ -11,9 +17,9 @@ class Stockexc implements Comparable <Stockexc> {
  * @param      p     { parameter_description }.
  * @param      q     The quarter.
  */
-	Stockexc(final String p, final float q) {
-		this.name = p;
-		this.data = q;
+    Stockexc(final String p, final float q) {
+    this.name = p;
+    this.data = q;
 	}
 /**
  * Returns a string representation of the object.
@@ -43,7 +49,7 @@ class Stockexc implements Comparable <Stockexc> {
 /**
  * Class for solution.
  */
-public class Solution {
+class Solution {
     /**
      * { function_description }.
      *
@@ -88,7 +94,7 @@ stMaxPQ.insert(new Stockexc(tokens[0], Float.parseFloat(tokens[1])));
                 if (tokens[1].equals("minST")) {
                     System.out.println(symbolMin.get(tokens[2]));
                 }
-            break;
+            default:break;
       case "intersection":
         break;
             }
