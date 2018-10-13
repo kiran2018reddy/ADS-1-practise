@@ -4,10 +4,15 @@ import java.util.Comparator;
  * Class for stockexc.
  */
 class Stockexc implements Comparable<Stockexc>{
-	String name;
-	float data;
-
-	Stockexc(String p, float q) {
+	public String name;
+	public float data;
+/**
+ * Constructs the object.
+ *
+ * @param      p     { parameter_description }.
+ * @param      q     The quarter.
+ */
+	Stockexc(final String p, final float q) {
 		this.name = p;
 		this.data = q;
 	}
@@ -39,7 +44,12 @@ class Stockexc implements Comparable<Stockexc>{
 /**
  * Class for solution.
  */
-class Solution {
+public class Solution {
+    /**
+     * { function_description }.
+     *
+     * @param      args  The arguments.
+     */
     public static void main(final String[] args) {
         Scanner input = new Scanner(System.in);
         int n = Integer.parseInt(input.nextLine());
