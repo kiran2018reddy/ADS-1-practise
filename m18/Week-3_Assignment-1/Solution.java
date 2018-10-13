@@ -96,7 +96,7 @@ stMaxPQ.insert(new Stockexc(tokens[0], Float.parseFloat(tokens[1])));
     }
  default:break;
       case "intersection":
-      //System.out.println(symbolMax.get(tokens[2]));
+      //System.out.println"()
         break;
             }
         }
