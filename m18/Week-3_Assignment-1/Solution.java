@@ -1,5 +1,8 @@
 import java.util.Scanner;
 import java.util.Comparator;
+/**
+ * Class for stockexc.
+ */
 class Stockexc implements Comparable<Stockexc>{
 	String name;
 	float data;
@@ -8,7 +11,11 @@ class Stockexc implements Comparable<Stockexc>{
 		this.name = p;
 		this.data = q;
 	}
-
+/**
+ * Returns a string representation of the object.
+ *
+ * @return     String representation of the object.
+ */
 	public String toString() {
 		return this.name + " " + this.data;
 	}
