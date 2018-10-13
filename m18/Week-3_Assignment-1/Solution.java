@@ -1,11 +1,10 @@
 import java.util.Scanner;
-import java.util.Comparator;
 /**
  * Class for stockexc.
  */
-class Stockexc implements Comparable<Stockexc>{
-	public String name;
-	public float data;
+class Stockexc implements Comparable <Stockexc> {
+    public String name;
+    public float data;
 /**
  * Constructs the object.
  *
