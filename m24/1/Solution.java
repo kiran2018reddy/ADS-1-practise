@@ -42,7 +42,7 @@ final class Solution {
                         getName(tokens[1]));
                 } else {
                     System.out.
-                    println("Student doesn't exists");
+                    println("Student doesn't exists...");
                 }
                 break;
                 case "2":
@@ -51,7 +51,7 @@ final class Solution {
                         getMarks(tokens[1])));
                 } else {
                     System.out.
-                    println("Student doesn't exists");
+                    println("Student doesn't exists...");
                 }
                 break;
                 default:
