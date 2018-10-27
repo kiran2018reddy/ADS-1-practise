@@ -75,7 +75,7 @@ class LinearProbingHashing<Key, ValueName, ValueMarks> {
     /**
      * capacity of the linear array.
      */
-    static final int _INIT_CAPACITY = 4;
+    static final int INITCAPACITY = 4;
     /**
      * number of key value pairs.
      */
@@ -102,8 +102,13 @@ class LinearProbingHashing<Key, ValueName, ValueMarks> {
      */
 
     LinearProbingHashing() {
-        this(_INIT_CAPACITY);
+        this(INITCAPACITY);
     }
+    /**
+     * Constructs the object.
+     *
+     * @param      capacity  The capacity
+     */
     LinearProbingHashing(final int capacity) {
         m = capacity;
         n = 0;
@@ -169,9 +174,10 @@ class LinearProbingHashing<Key, ValueName, ValueMarks> {
      * resize calls put method.
      * The time complexity O(logN*) -- worst case.
      * The time complexity O(3.5*) -- worst case.
+     */
+    /**
      *
-     *
-     * @param    capacity
+     * @param      capacity  The capacity
      */
 
     private void resize(final int capacity) {
