@@ -18,7 +18,7 @@ public final class Solution {
         int s1 = Integer.parseInt(s.nextLine());
         int s2 = Integer.parseInt(s.nextLine());
         int[] arr1 = new int[s1];
-        int[] arr2 = new int[s2];
+        int[] arr2 = new int[so2];
         String[] str1 = s.nextLine().split(",");
         String[] str2 = s.nextLine().split(",");
         for (int i = 0; i < s1; i++) {

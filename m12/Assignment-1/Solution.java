@@ -169,14 +169,14 @@ if (array[i].rescategory.equals("Open")) {
 	 * @param      st       { parameter_description }.
 	 */
 	public static void meritofstd(final studentdata[] array, int vacancy, int open,
- int bc,  int sc,int st) {
+ int bc,  int sc, int st) {
 		countcat(array);
 		for (int i = 0; i < array.length; i++) {
 			if (vacancy == 0) {
 				return;
 			}
 			if (open > 0) {
-				System.out.println(array[i].studentname + "," 
+				System.out.println(array[i].studentname + ","
 	+ array[i].tmarks + "," 
 	+ array[i].rescategory);
 			open--;
@@ -187,26 +187,26 @@ if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC")
 	|| array[i].rescategory.equals("ST")) {
 		if (array[i].rescategory.equals("BC") && bc > 0) {
 		System.out.println(array[i].studentname + "," +
-			array[i].tmarks + "," 
+			array[i].tmarks + ","
 				+ array[i].rescategory);
 						bc--;
 						vacancy--;
 	} else if (array[i].rescategory.equals("SC") && sc > 0) {
-	System.out.println(array[i].studentname + "," 
-						 + array[i].tmarks + "," 
+	System.out.println(array[i].studentname + ","
+						 + array[i].tmarks + ","
                 + array[i].rescategory);
 						sc--;
 						vacancy--;
-					} else if (array[i].rescategory.equals("ST") && st > 0) {
-						System.out.println(array[i].studentname + "," 
-				+ array[i].tmarks + "," 
+} else if (array[i].rescategory.equals("ST") && st > 0) {
+						System.out.println(array[i].studentname + ","
+				+ array[i].tmarks + ","
 				+ array[i].rescategory);
 						st--;
 						vacancy--;
 					}
 } else if (vacancy > 0 && bccount == 0 && sccount == 0 && stcount == 0) {
-					System.out.println(array[i].studentname + "," 
-					          + array[i].tmarks + "," 
+	System.out.println(array[i].studentname + ","
+					          + array[i].tmarks + ","
 					       + array[i].rescategory);
 					vacancy--;
 				}
@@ -219,10 +219,10 @@ if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC")
 	 *
 	 * @param      array  The array.
 	 */
-	public static void print(studentdata[] array) {
+	public static void print(final studentdata[] array) {
 		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i].studentname + "," 
-			                   + array[i].tmarks + "," 
+			System.out.println(array[i].studentname + ","
+			                   + array[i].tmarks + ","
 			                   + array[i].rescategory);
 		}
 	}
@@ -243,8 +243,8 @@ if (array[i].rescategory.equals("BC") || array[i].rescategory.equals("SC")
 		for (int i = 0; i < num; i++) {
 			String line = scan.nextLine();
 			String[] tokens = line.split(",");
-			studentdata eachstudentdata = new studentdata(tokens[0], tokens[1],
-				Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]),
+studentdata eachstudentdata = new studentdata(tokens[0], tokens[1],
+Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3]),
 Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5]), tokens[6]);
 			students[i] = eachstudentdata;
 		}

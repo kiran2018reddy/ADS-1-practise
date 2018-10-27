@@ -58,8 +58,7 @@ class CubeSum implements Comparable<CubeSum> {
     public int getSum() {
         return this.sum;
     }
-
-    /**
+        /**
      * compares two objects of CubeSum type
      * The time complexity is O(1).
      * .
@@ -68,7 +67,6 @@ class CubeSum implements Comparable<CubeSum> {
      *
      * @return     { int type }
      */
-
     public int compareTo(final CubeSum that) {
         if (this.sum < that.sum) {
             return -1;

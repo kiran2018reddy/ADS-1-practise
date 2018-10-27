@@ -96,7 +96,6 @@ stMaxPQ.insert(new Stockexc(tokens[0], Float.parseFloat(tokens[1])));
     }
  default:break;
       case "intersection":
-      //System.out.println"()
         break;
             }
         }
