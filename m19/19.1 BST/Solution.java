@@ -16,7 +16,7 @@ Name
 Author
 price
 Note:
-Object comparisons should be done based on Name of the book.*/ 
+Object comparisons should be done based on Name of the book.*/
 //import java.util.scanner;
 import java.util.Scanner;
 /**
